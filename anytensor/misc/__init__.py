@@ -1,1 +1,3 @@
-from .randomu import randomu
+from .random import randomu
+from .random import randomn
+
