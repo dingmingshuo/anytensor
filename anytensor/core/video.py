@@ -30,14 +30,10 @@ def read(path):
     frames = []
     cap = cv2.VideoCapture(path)
     ret = True
-    i = 0
     while ret:
-        i += 1
         ret, img = cap.read()  # img is (H, W, C)
         if ret:
             frames.append(img)
-        if i > 100:
-            break
     video = np.stack(frames, axis=0)  # dimensions (T, H, W)
     return video
 
