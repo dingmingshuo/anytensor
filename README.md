@@ -23,3 +23,13 @@ print(data.shape)
 
 `video.eagle()`, `video.friends()`, `video.logo()`, `video.
 walking_past_camera()`, `video.walking_past_camera_gray()` is supported now.
+
+## Build Document
+
+```commandline
+pip install sphinx sphinx-book-theme sphinx-autoapi recommonmark
+cd doc
+bash build.sh
+```
+
+And then open `doc/build/html/index.html` to view document.

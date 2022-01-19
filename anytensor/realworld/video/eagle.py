@@ -1,13 +1,13 @@
-'''
+"""
 Piotr Indyk et al. “Learning-Based Low-Rank Approximations” Neural Information Processing Systems (2019).
 http://youtu.be/ufnf_q_3Ofg
-'''
+"""
 
 import os.path
 
 import anytensor.core.video as video
 from anytensor.core.config import temp_path
-from anytensor.dataset import Dataset
+from anytensor.core.dataset import Dataset
 
 
 def __eagle():

@@ -2,6 +2,10 @@ import numpy as np
 
 
 class Dataset:
+    """
+    Dataset class.
+    """
+
     def __init__(self, name, category, data=None):
         self.name = name
         self.category = category
@@ -45,4 +49,4 @@ class Dataset:
         return self.data
 
     def info(self):
-        return self.info
+        return self.__str__()

@@ -7,7 +7,7 @@ import os.path
 
 import anytensor.core.video as video
 from anytensor.core.config import temp_path
-from anytensor.dataset import Dataset
+from anytensor.core.dataset import Dataset
 
 
 def __walking_past_camera():

@@ -2,7 +2,7 @@ import math
 
 import numpy as np
 
-from anytensor.dataset import Dataset
+from anytensor.core.dataset import Dataset
 
 
 class __randomu(Dataset):
@@ -18,6 +18,9 @@ class __randomu(Dataset):
 
 
 randomu = __randomu()
+"""
+Generate a uniformly randomized tensor.
+"""
 
 
 class __randomn(Dataset):
@@ -33,3 +36,7 @@ class __randomn(Dataset):
 
 
 randomn = __randomn()
+"""
+Generate a Gaussian randomized tensor.
+"""
+
