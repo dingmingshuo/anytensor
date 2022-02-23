@@ -10,9 +10,6 @@ anytensor.misc.random module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
 .. automodule:: anytensor.misc
    :members:
    :undoc-members:

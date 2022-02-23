@@ -34,9 +34,6 @@ anytensor.realworld.video.walking\_past\_camera module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
 .. automodule:: anytensor.realworld.video
    :members:
    :undoc-members:

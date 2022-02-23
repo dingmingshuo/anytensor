@@ -26,9 +26,6 @@ anytensor.core.video module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
 .. automodule:: anytensor.core
    :members:
    :undoc-members:

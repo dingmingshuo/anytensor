@@ -37,6 +37,9 @@ class Dataset:
                    f"or not be set."
 
     def __call__(self):
+        return self.getdata()
+
+    def getdata(self):
         if callable(self.data) and (not self.data_is_got):
             self.data = self.data()
             if type(self.data) is not np.ndarray:
@@ -47,6 +50,9 @@ class Dataset:
             self.shape = self.data.shape
             self.data_is_got = True
         return self.data
+
+    def first(self, n):
+        return self.getdata()[:n]
 
     def info(self):
         return self.__str__()

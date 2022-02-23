@@ -26,27 +26,40 @@ def download_youtube(download_link, filename, file_extension):
         print("Download finish!")
 
 
-def read(path):
+def read(path, frame=None):
     frames = []
     cap = cv2.VideoCapture(path)
-    ret = True
-    while ret:
-        ret, img = cap.read()  # img is (H, W, C)
-        if ret:
-            frames.append(img)
+    if frame is None:
+        ret = True
+        while ret:
+            ret, img = cap.read()  # img is (H, W, C)
+            if ret:
+                frames.append(img)
+    else:
+        for i in range(frame):
+            ret, img = cap.read()  # img is (H, W, C)
+            if ret:
+                frames.append(img)
     video = np.stack(frames, axis=0)  # dimensions (T, H, W)
     return video
 
 
-def read_gray(path):
+def read_gray(path, frame=None):
     frames = []
     cap = cv2.VideoCapture(path)
-    ret = True
-    while ret:
-        ret, img = cap.read()  # img is (H, W, C)
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # gray is (H, W)
-        if ret:
-            frames.append(gray)
+    if frame is None:
+        ret = True
+        while ret:
+            ret, img = cap.read()  # img is (H, W, C)
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # gray is (H, W)
+            if ret:
+                frames.append(gray)
+    else:
+        for i in range(frame):
+            ret, img = cap.read()  # img is (H, W, C)
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # gray is (H, W)
+            if ret:
+                frames.append(gray)
     video = np.stack(frames, axis=0)  # dimensions (T, H, W)
     return video
 

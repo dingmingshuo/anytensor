@@ -15,9 +15,6 @@ anytensor.realworld.combustion module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
 .. automodule:: anytensor.realworld
    :members:
    :undoc-members:

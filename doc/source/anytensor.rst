@@ -8,9 +8,6 @@ anytensor package
    anytensor.misc
    anytensor.realworld
 
-Module contents
----------------
-
 .. automodule:: anytensor
    :members:
    :undoc-members:
