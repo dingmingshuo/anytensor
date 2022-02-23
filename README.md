@@ -15,14 +15,14 @@ python setup.py install
 ```python
 import anytensor
 
-data = anytensor.realworld.video.eagle()
+eagle = anytensor.realworld.video.Logo()
+data = eagle.first(50)
 print(data.shape)
 ```
 
 `data`'s type is `numpy.ndarray`.
 
-`video.eagle()`, `video.friends()`, `video.logo()`, `video.
-walking_past_camera()`, `video.walking_past_camera_gray()` is supported now.
+`realworld.video.Eagle()`, `realworld.video.Friends()`, `realworld.video.Logo()` is supported now.
 
 ## Build Document
 

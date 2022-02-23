@@ -3,19 +3,13 @@ Piotr Indyk et al. “Learning-Based Low-Rank Approximations” Neural Informati
 http://youtu.be/xmLZsEfXEgE
 '''
 
-import os.path
-
-import anytensor.core.video as video
-from anytensor.core.config import temp_path
-from anytensor.core.dataset import Dataset
+from anytensor.core.video import VideoDataset
 
 
-def __friends():
+class Friends(VideoDataset):
     download_link = "http://youtu.be/xmLZsEfXEgE"
-    filename = os.path.join(temp_path, "friends.mp4")
-    video.download_youtube(download_link, filename, "mp4")
-    data = video.read(filename)
-    return data
+    name = "friends"
+    filetype = "mp4"
 
-
-friends = Dataset("friends", "realworld/video", __friends)
+    def __init__(self):
+        super().__init__(self.name, self.download_link, self.filetype)

@@ -1,5 +1,7 @@
 import os
 from urllib.request import urlopen
+from anytensor.core.config import temp_path
+from anytensor.core.dataset import Dataset
 
 import cv2
 import numpy as np
@@ -64,14 +66,33 @@ def read_gray(path, frame=None):
     return video
 
 
-def play_by_frame(data):
+def play_by_frame(data, delay = 1000):
     if type(data) is not np.ndarray:
         raise TypeError(f"Invalid data type from attribute 'data' in "
                         f"function 'play': expect {np.ndarray}, but "
                         f"{type(data)} received")
+    print("Press q to exit")
     for frame in data:
-        print(frame.shape)
         cv2.imshow("frame", frame)
-        while True:
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+        cv2.waitKey(delay)
+
+
+class VideoDataset(Dataset):
+    def __download(self):
+        file = os.path.join(temp_path, self.filename)
+        download_youtube(self.download_link, file, self.filetype)
+        data = read(file)
+        return data
+
+    def __init__(self, name, download_link, filetype):
+        self.download_link = download_link
+        self.name = name
+        self.filetype = filetype
+        self.filename = name + "." + filetype
+        super().__init__(self.name, "realworld/video", self.__download)
+
+    def first(self, n):
+        file = os.path.join(temp_path, self.filename)
+        download_youtube(self.download_link, file, self.filetype)
+        data = read(file, n)
+        return data
