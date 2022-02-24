@@ -40,6 +40,11 @@ class Dataset:
         return self.getdata()
 
     def getdata(self):
+        """
+        Get data from dataset.
+
+        :return: np.ndarray
+        """
         if callable(self.data) and (not self.data_is_got):
             self.data = self.data()
             if type(self.data) is not np.ndarray:
@@ -52,7 +57,18 @@ class Dataset:
         return self.data
 
     def first(self, n):
+        """
+        Get the first :math:`n` data along the first dimension.
+
+        :param n:
+        :return: np.ndarray
+        """
         return self.getdata()[:n]
 
     def info(self):
+        """
+        Get infomation of this dataset.
+
+        :return: str
+        """
         return self.__str__()
