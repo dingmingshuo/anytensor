@@ -3,7 +3,7 @@ Piotr Indyk et al. “Learning-Based Low-Rank Approximations” Neural Informati
 http://youtu.be/ufnf_q_3Ofg
 """
 
-from anytensor.core.video import VideoDataset
+from anytensor.realworld.video.video import VideoDataset
 
 
 class Eagle(VideoDataset):

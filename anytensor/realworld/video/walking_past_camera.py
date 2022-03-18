@@ -5,7 +5,7 @@ https://figshare.com/ndownloader/files/29084181
 '''
 import os.path
 
-import anytensor.core.video as video
+import anytensor.realworld.video.video as video
 from anytensor.core.config import temp_path
 from anytensor.core.dataset import Dataset
 
