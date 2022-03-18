@@ -66,7 +66,7 @@ def read_gray(path, frame=None):
     return video
 
 
-def play_by_frame(data, delay = 1000):
+def play_by_frame(data, delay=1000):
     if type(data) is not np.ndarray:
         raise TypeError(f"Invalid data type from attribute 'data' in "
                         f"function 'play': expect {np.ndarray}, but "
@@ -84,12 +84,21 @@ class VideoDataset(Dataset):
         data = read(file)
         return data
 
-    def __init__(self, name, download_link, filetype):
-        self.download_link = download_link
-        self.name = name
-        self.filetype = filetype
-        self.filename = name + "." + filetype
-        super().__init__(self.name, "realworld/video", self.__download)
+    def __read(self):
+        data = read(self.filename)
+        return data
+
+    def __init__(self, name, download_link=None, filetype="mp4", filename=None):
+        if filename is None:
+            self.download_link = download_link
+            self.name = name
+            self.filetype = filetype
+            self.filename = name + "." + filetype
+            super(VideoDataset, self).__init__(self.name, "realworld/video", self.__download)
+        else:
+            # Already downloaded
+            self.filename = filename
+            super(VideoDataset, self).__init__(self.name, "realworld/video", self.__read)
 
     def first(self, n):
         file = os.path.join(temp_path, self.filename)

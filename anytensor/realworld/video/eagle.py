@@ -11,5 +11,5 @@ class Eagle(VideoDataset):
     name = "eagle"
     filetype = "mp4"
 
-    def __init__(self):
-        super().__init__(self.name, self.download_link, self.filetype)
+    def __init__(self, filename=None):
+        super().__init__(self.name, self.download_link, self.filetype, filename)
